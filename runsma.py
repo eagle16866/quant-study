@@ -48,7 +48,7 @@ class MyStrategy(strategy.BacktestingStrategy):
         # If a position was not opened, check if we should enter a long position.
         if self.__position is None:
             if bar.getPrice() > self.__sma[-1]:
-                # Enter a buy market order for 1000 shares. The order is good till canceled.
+                # Enter a buy market order for x shares. The order is good till canceled.
                 # 购买1000股
                 self.__position = self.enterLong(self.__instrument, 100, True)
         # Check if we have to exit the position.
@@ -59,12 +59,12 @@ class MyStrategy(strategy.BacktestingStrategy):
 def run_strategy(smaPeriod):
     # Load the yahoo feed from the CSV file
     feed = yahoofeed.Feed()
-    feed.addBarsFromCSV("amzn", "download/amzn.csv")
+    feed.addBarsFromCSV("amzn", "data/amzn.csv")
 
     # Evaluate the strategy with the feed.
     myStrategy = MyStrategy(feed, "amzn", smaPeriod)
     myStrategy.run()
     print "Final portfolio value: $%.2f" % myStrategy.getBroker().getEquity()
 
-# 跑20天移动平据线
+# 跑y天移动平据线
 run_strategy(25)

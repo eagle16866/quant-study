@@ -16,8 +16,8 @@ import sma_crossover
 
 # Load the yahoo feed from the CSV file
 feed = yahoofeed.Feed()
-ticker="000333.sz"
-feed.addBarsFromCSV(ticker, r'D:\Workspace\download\%s.csv'  %ticker )
+ticker="amzn"
+feed.addBarsFromCSV(ticker, r'D:\Workspace\data\%s.csv'  %ticker )
 
 # Evaluate the strategy with the feed's bars.
 myStrategy = sma_crossover.SMACrossOver(feed, ticker, 15)

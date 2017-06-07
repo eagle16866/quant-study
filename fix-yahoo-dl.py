@@ -14,8 +14,8 @@ import fix_yahoo_finance  # <== that's all it takes :-)
 
 ticker = "amzn"
 # Download dataframe
-data = pdr.get_data_yahoo(ticker, start="2010-01-01", end="2017-6-6")
-data.to_csv('D:\Workspace\download\%s.csv' %ticker)  
+data = pdr.get_data_yahoo(ticker, start="2016-01-01", end="2017-6-6")
+data.to_csv('D:\Workspace\data\%s.csv' %ticker)  
 print("Download completed!")
 # Print last 5 rows 
 print(data.tail()) 
